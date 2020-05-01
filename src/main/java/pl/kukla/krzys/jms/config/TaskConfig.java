@@ -6,7 +6,6 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  * @author Krzysztof Kukla
@@ -16,9 +15,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 //it enables async tasks
 @EnableAsync
 @Configuration
-public class TaskConfiguration {
+public class TaskConfig {
 
-    @Scheduled(fixedRate = 10)
     //it allows to run async task
     @Bean
     public TaskExecutor taskExecutor() {

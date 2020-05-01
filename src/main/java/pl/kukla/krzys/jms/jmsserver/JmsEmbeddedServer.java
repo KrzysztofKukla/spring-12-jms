@@ -1,4 +1,4 @@
-package pl.kukla.krzys.jms.jms;
+package pl.kukla.krzys.jms.jmsserver;
 
 import org.apache.activemq.artemis.core.config.impl.ConfigurationImpl;
 import org.apache.activemq.artemis.core.server.ActiveMQServer;

@@ -21,7 +21,7 @@ public class HelloSender {
     //jmsTemplate automatically configured to talk to our ActiveMq server
     private final JmsTemplate jmsTemplate;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 9000)
     public void sendMessage() {
         log.debug("Sending the message ");
         HelloWorldMessage message = HelloWorldMessage.builder().id(UUID.randomUUID()).message("this is message").build();

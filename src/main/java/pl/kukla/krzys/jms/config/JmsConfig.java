@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
-import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  * @author Krzysztof Kukla
@@ -13,7 +12,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Configuration
 public class JmsConfig {
 
-    @Scheduled(fixedRate = 10)
+    public static final String MY_QUEUE = "my_queue";
+
     //it allows to serialize/mapping message when we put it on the queue ( when we are sending message to Jms )
     //it takes Java object and converts to JSON payload and send to Queue
     //after that convert reverse form Json to Java object

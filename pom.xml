@@ -24,15 +24,17 @@
 			<artifactId>spring-boot-starter-artemis</artifactId>
 		</dependency>
 
+		<!-- embedded ActiveMq Artemis server -->
 		<!-- if we will add those dependencies to classpath then SpringBoot provide configuration automatically -->
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>artemis-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>artemis-jms-server</artifactId>
-		</dependency>
+		<!-- comment out - we will use ActiveMq Artemis server from Docker container -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.activemq</groupId>-->
+<!--			<artifactId>artemis-server</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.activemq</groupId>-->
+<!--			<artifactId>artemis-jms-server</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

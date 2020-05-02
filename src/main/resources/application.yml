@@ -3,3 +3,8 @@ logging:
     pl:
       kukla:
         krzys: debug
+
+spring:
+  artemis:
+    user: artemis
+    password: simetraehcapa

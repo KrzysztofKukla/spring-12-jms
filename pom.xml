@@ -24,7 +24,7 @@
 			<artifactId>spring-boot-starter-artemis</artifactId>
 		</dependency>
 
-		<!-- embedded Jms server -->
+		<!-- if we will add those dependencies to classpath then SpringBoot provide configuration automatically -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>artemis-server</artifactId>

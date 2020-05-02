@@ -12,7 +12,8 @@ import org.springframework.jms.support.converter.MessageType;
 @Configuration
 public class JmsConfig {
 
-    public static final String MY_QUEUE = "my_queue";
+    public static final String MY_QUEUE = "sendQueue";
+    public static final String SEND_AND_RECEIVE_QUEUE = "send_and_receive_queue";
 
     //it allows to serialize/mapping message when we put it on the queue ( when we are sending message to Jms )
     //it takes Java object and converts to JSON payload and send to Queue

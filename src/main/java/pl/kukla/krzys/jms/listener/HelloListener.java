@@ -11,7 +11,9 @@ import org.springframework.stereotype.Component;
 import pl.kukla.krzys.jms.config.JmsConfig;
 import pl.kukla.krzys.jms.model.HelloWorldMessage;
 
+import javax.jms.JMSException;
 import javax.jms.Message;
+import java.util.UUID;
 
 /**
  * @author Krzysztof Kukla
@@ -34,6 +36,22 @@ public class HelloListener {
 
         //if listener throws Exception then @JmsListener tries to listen again, so invoke listen method again
         throw new RuntimeException();
+    }
+
+    @JmsListener(destination = JmsConfig.SEND_AND_RECEIVE_QUEUE)
+    public void listenSendAndReceive(@Payload HelloWorldMessage helloWorldMessage,
+                                     @Headers MessageHeaders messageHeaders,
+                                     Message message) throws JMSException {
+
+        log.debug("Received message from queue {}", JmsConfig.SEND_AND_RECEIVE_QUEUE);
+
+        //it gets message which come from sender and send response back
+        jmsTemplate.convertAndSend(message.getJMSReplyTo(), createResponseMessage());
+        log.debug("Response message sent");
+    }
+
+    private HelloWorldMessage createResponseMessage() {
+        return HelloWorldMessage.builder().id(UUID.randomUUID()).message("response message").build();
     }
 
 }

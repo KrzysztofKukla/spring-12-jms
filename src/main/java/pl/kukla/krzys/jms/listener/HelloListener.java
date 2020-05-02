@@ -41,12 +41,17 @@ public class HelloListener {
     @JmsListener(destination = JmsConfig.SEND_AND_RECEIVE_QUEUE)
     public void listenSendAndReceive(@Payload HelloWorldMessage helloWorldMessage,
                                      @Headers MessageHeaders messageHeaders,
-                                     Message message) throws JMSException {
+                                     Message jmsMessage,
+                                     org.springframework.messaging.Message springMessage) throws JMSException {
 
         log.debug("Received message from queue {}", JmsConfig.SEND_AND_RECEIVE_QUEUE);
 
         //it gets message which come from sender and send response back
-        jmsTemplate.convertAndSend(message.getJMSReplyTo(), createResponseMessage());
+        jmsTemplate.convertAndSend(jmsMessage.getJMSReplyTo(), createResponseMessage());
+
+        //for springMessage
+//        jmsTemplate.convertAndSend((Destination) springMessage.getHeaders().get("jms_replyTo"), createResponseMessage());
+
         log.debug("Response message sent");
     }
 
